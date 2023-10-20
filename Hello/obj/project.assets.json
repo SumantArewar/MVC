@@ -1,11 +1,68 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {}
+    "net6.0": {
+      "BzLayer/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "DataLayer": "1.0.0",
+          "Entity": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/BzLayer.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BzLayer.dll": {}
+        }
+      },
+      "DataLayer/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Entity": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/DataLayer.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DataLayer.dll": {}
+        }
+      },
+      "Entity/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Entity.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Entity.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "BzLayer/1.0.0": {
+      "type": "project",
+      "path": "../BzLayer/BzLayer.csproj",
+      "msbuildProject": "../BzLayer/BzLayer.csproj"
+    },
+    "DataLayer/1.0.0": {
+      "type": "project",
+      "path": "../DataLayer/DataLayer.csproj",
+      "msbuildProject": "../DataLayer/DataLayer.csproj"
+    },
+    "Entity/1.0.0": {
+      "type": "project",
+      "path": "../Entity/Entity.csproj",
+      "msbuildProject": "../Entity/Entity.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0": []
+    "net6.0": [
+      "BzLayer >= 1.0.0",
+      "Entity >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "/home/coder/.nuget/packages/": {}
@@ -31,7 +88,14 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "/home/coder/project/workspace/BzLayer/BzLayer.csproj": {
+              "projectPath": "/home/coder/project/workspace/BzLayer/BzLayer.csproj"
+            },
+            "/home/coder/project/workspace/Entity/Entity.csproj": {
+              "projectPath": "/home/coder/project/workspace/Entity/Entity.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

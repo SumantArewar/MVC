@@ -3,7 +3,9 @@ using Entity;
 using BzLayer;
 
 MovieBz bz = new MovieBz();
-if(Movies != null)
+
+List<Movies> movies = bz.GetMovies();
+if(movies != null)
 {
     foreach(var m in movies)
     {
