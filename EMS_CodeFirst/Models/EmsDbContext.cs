@@ -19,7 +19,7 @@ namespace EMS_CodeFirst.Models;
 //     {
 //         if(!optionBuilder.IsConfigured)
 //         {
-//             optionBuilder.UseSqlServer("User ID=sa;password=examlyMssql@123; server=localhost;Database=EmsDb;trusted_connection=false;Persist Security Info=False;Encrypt=False;");
+            // optionBuilder.UseSqlServer("User ID=sa;password=examlyMssql@123; server=localhost;Database=EmsDb;trusted_connection=false;Persist Security Info=False;Encrypt=False;");
 //         }
 //     }
 // }

@@ -4,8 +4,6 @@ using EMS.Models;
 using System.Data;
 using System.Data.SqlClient;
 
-
-
 namespace EMS.Controllers;
 
 public class DeptController : Controller
@@ -15,11 +13,7 @@ public class DeptController : Controller
     {
         context = _context;
     }
-    public IActionResult Display(int id)
-    {
-        var data = context.Employees.Where(e=>e.DeptId==id);
-        return View();
-    }
+
     public IActionResult List()
     {
         List<Department> data=null;
@@ -35,6 +29,12 @@ public class DeptController : Controller
             return View("Error");
         }
         return View(data);
+    }
+
+    public IActionResult Display(int id)
+    {
+        var data = context.Employees.Where(e=>e.DeptId==id);
+        return View();
     }
 
     public IActionResult Create()
@@ -70,5 +70,20 @@ public class DeptController : Controller
             return RedirectToAction("List");
         }
         return View();
+    }
+
+    public IActionResult Delete(int id)
+    {
+        var data = context.Product.Find(id);
+        return View(data);
+    }
+    [HttpPost]
+    public IActionResult Delete(Product p)
+    {
+            Product product = context.Product.Find(p.Id);
+            context.Product.Remove(product);
+            context.SaveChanges();
+            return RedirectToAction("List");
+        
     }
 }
