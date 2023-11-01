@@ -68,8 +68,8 @@ public class ProductController : Controller
         return RedirectToAction("List");
     }
 }
-
 */
+
 
 public class ProductController : Controller
 {
@@ -81,7 +81,7 @@ public class ProductController : Controller
     public IActionResult List()
     {
         var data = context.Product.ToList();
-        return View();
+        return View(data);
     }
     public IActionResult Display(int id)
     {
@@ -99,11 +99,34 @@ public class ProductController : Controller
         
         return View();
     }
+    public IActionResult Edit(int Id)
+    {
+        var data = context.Product.Find(Id);
+        return View();
+    }
+    [HttpPost]
+    public IActionResult Edit(Product prod)
+    {
+        Product product = context.Product.Add(prod.Id);
+        product.Name = prod.Name;
+        product.Price = prod.Price;
+        product.Stock = prod.Stock;
+        context.SaveChanges();
+        return RedirectToAction("List");
+    }
     public IActionResult Delete(int Id)
     {
         var data = context.Product.Find(Id);
         context.Product.Remove(Id);
         context.SaveChanges();
         return RedirectToAction("List");
+    }
+    [HttpPost]
+    public IActionResult Delete(Product prod)
+    {
+        Product product = context.Product.Find(prod.Id);
+        context.Product.Remove(product);
+        context.SaveChanges();
+         return RedirectToAction("List");
     }
 }
