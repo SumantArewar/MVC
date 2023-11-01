@@ -84,7 +84,57 @@ public class ProductController : Controller
     } 
     public IActionResult Display(int id)
     {
-        var data = context.Product.
+        var data = context.Product.Find(id);
+        return View(data);
+    }
+    public IActionResult Create()
+    {
+        return View();
+    }
+    [HttpPost]
+    public IActionResult Create(Product p)
+    {
+        if(ModelState.IsValid)
+        Product product = context.Product.Find(p.Id);
+        context.Product.Add(product);
+        product.Name = p.Name;
+        product.Price = p.Price;
+        product.Stock = p.Stock;
+        context.SaveChanges();
+        return RedirectToAction("List");
+    }
+    public IActionResult Edit(int id)
+    {
+        var data = context.Product.Find(id);
+        return View(data);
+    }
+    [HttpPost]
+    public IActionResult Edit(Product p)
+    {
+        if(ModelState.IsValid)
+        {
+            Product product = context.Product.Find(p.Id);
+
+            context.SaveChanges();
+            return RedirectToAction("List");
+        }
+        return View();
+    }
+    public IActionResult Delete(int id)
+    {
+        var data = context.Product.Find(id);
+        return View(data);
+    }
+    [HttpPost]
+    public IActionResult Delete(Product p)
+    {
+        if(ModelState.IsValid)
+        {
+            Product product = context.Product.Find(p.Id);
+            context.Product.Remove(product);
+            context.SaveChanges();
+            return RedirectToAction("List");
+        }
     }
 
 
