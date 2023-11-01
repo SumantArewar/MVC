@@ -70,11 +70,10 @@ public class ProductController : Controller
 }
 */
 
-
 public class ProductController : Controller
 {
     private readonly SDbContext context;
-    public ProductController (SDbContext _context)
+    public ProductController(SDbContext _context)
     {
         context = _context;
     }
@@ -82,51 +81,11 @@ public class ProductController : Controller
     {
         var data = context.Product.ToList();
         return View(data);
-    }
+    } 
     public IActionResult Display(int id)
     {
-        var data = context.Product.Find(id);
-        return View(data);
-    }    
-    public IActionResult Create()
-    {
-        return View();
+        var data = context.Product.
     }
-    [HttpPost]
-    public IActionResult Create(Product prod)
-    {
-        context.Product.Add(prod);
-        
-        return View();
-    }
-    public IActionResult Edit(int Id)
-    {
-        var data = context.Product.Find(Id);
-        return View();
-    }
-    [HttpPost]
-    public IActionResult Edit(Product prod)
-    {
-        Product product = context.Product.Add(prod.Id);
-        product.Name = prod.Name;
-        product.Price = prod.Price;
-        product.Stock = prod.Stock;
-        context.SaveChanges();
-        return RedirectToAction("List");
-    }
-    public IActionResult Delete(int Id)
-    {
-        var data = context.Product.Find(Id);
-        context.Product.Remove(Id);
-        context.SaveChanges();
-        return RedirectToAction("List");
-    }
-    [HttpPost]
-    public IActionResult Delete(Product prod)
-    {
-        Product product = context.Product.Find(prod.Id);
-        context.Product.Remove(product);
-        context.SaveChanges();
-         return RedirectToAction("List");
-    }
+
+
 }
