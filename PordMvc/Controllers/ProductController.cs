@@ -80,6 +80,22 @@ public class ProductController : Controller
     }
     public IActionResult List()
     {
+        var data = context.Product.ToList();
+        return View();
+    }
+    public IActionResult Display(int id)
+    {
+        var data = context.Product.Find(id);
+        return View(data);
+    }    
+    public IActionResult Create()
+    {
+        return View();
+    }
+    [HttpPost]
+    public IActionResult Create(Product prod)
+    {
+        context.Product.Add(prod);
         return View();
     }
 }
