@@ -30,6 +30,9 @@ public class EMS_CodeFirstDbContext : DBContext
     public virtual DbSet<Employee> Employees{get;set;}
 
     public EMS_CodeFirstDbContext(){}
+    public EMS_CodeFirstDbContext(DbContextOptions<EMS_CodeFirstDbContext>options) : base(options)
+    {
+    }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
