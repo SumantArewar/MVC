@@ -96,6 +96,11 @@ public class ProductController : Controller
     public IActionResult Create(Product prod)
     {
         context.Product.Add(prod);
+        
         return View();
+    }
+    public IActionResult Delete(int Id)
+    {
+        
     }
 }
