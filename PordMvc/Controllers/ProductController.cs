@@ -95,13 +95,12 @@ public class ProductController : Controller
     public IActionResult Create(Product p)
     {
         if(ModelState.IsValid)
-        Product product = context.Product.Find(p.Id);
-        context.Product.Add(product);
-        product.Name = p.Name;
-        product.Price = p.Price;
-        product.Stock = p.Stock;
-        context.SaveChanges();
-        return RedirectToAction("List");
+        {
+            context.Product.Add(p);
+            context.SaveChanges();
+            return RedirectToAction("List");
+        }
+        return View();
     }
     public IActionResult Edit(int id)
     {
@@ -114,7 +113,9 @@ public class ProductController : Controller
         if(ModelState.IsValid)
         {
             Product product = context.Product.Find(p.Id);
-
+            product.Name = p.Name;
+            product.Price = p.Price;
+            product.Stock = p.Stock;
             context.SaveChanges();
             return RedirectToAction("List");
         }
@@ -128,13 +129,11 @@ public class ProductController : Controller
     [HttpPost]
     public IActionResult Delete(Product p)
     {
-        if(ModelState.IsValid)
-        {
             Product product = context.Product.Find(p.Id);
             context.Product.Remove(product);
             context.SaveChanges();
             return RedirectToAction("List");
-        }
+        
     }
 
 
