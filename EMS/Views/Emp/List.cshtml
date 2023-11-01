@@ -1,0 +1,29 @@
+@model IEnumerable<Employee>
+<h2>Employee Listing</h2>
+<hr>
+<div style = "">
+<a asp-controller="Emp" asp-action="Create">Add Employee</a>
+</div>
+<table class = "table">
+    <thead>
+        <th>
+            @Html.DisplayNameFor(e=>e.EmpId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(e=>e.Name)
+        </th>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayNameFor(e=>e.EmpId)</td>
+                <td>@Html.DisplayNameFor(e=>e.Name)</td>
+                <td>
+                    <a asp-controller="Employee" asp-action="Display" asp-route-id=item.Id>Display</a>
+                </td>
+            </tr>
+            
+        }
+    </tbody>
+</table>

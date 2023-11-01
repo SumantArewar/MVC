@@ -1,0 +1,23 @@
+@model IEnumerable<Zoo>
+<div class = 'container'>
+    <table class = "table table-bordered">
+         <thead>
+            <th>@Html.DisplayNameFor(z=>z.Id)</th>
+            <th>@Html.DisplayNameFor(z=>z.ZId)</th>
+            <th></th>
+        </thead>
+        <tbody>
+            @foreach(var zoo in @Model)
+            {
+                <td>@zoo.Id</td>
+                <td>@zoo.ZId</td>
+                <td></td>
+                <td>
+                    @Html.ActionLink("Create","Create",new {id=zoo.Id}) &nbsp; &nbsp;
+                    @* @Html.ActionLink("Edit","Edit",new {id=zoo.Id}) &nbsp; &nbsp; *@
+                </td>
+            }
+        </tbody>
+    </table>
+
+    </div>

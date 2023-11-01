@@ -6,6 +6,19 @@ namespace EmpMvc.Controllers;
 
 public class ProductController : Controller
 {
+    public IActionResult Display(int id)
+    {
+        string constr = "User ID=sa;password=examlyMssql@123; server=localhost;Database=SumantDb;trusted_connection=false;Persist Security Info=False;Encrypt=False";
+        SqlConnection con = new SqlConnection(constr);
+        SqlCommand command = new SqlCommand("Find",con);
+        command.CommandType = CommandType.StoredProcedure;
+        command.Parameters.AddWithValue("@id",id);
+        con.Open();
+        SqlDataReader reader = command.ExecuteReader();
+        DataTable prodTable = new DataTable();
+        prodTable.Load(reader);
+        return View(prodTable);
+    }
     public IActionResult List()
     {    
         string constr = "User ID=sa;password=examlyMssql@123; server=localhost;Database=SumantDb;trusted_connection=false;Persist Security Info=False;Encrypt=False";
