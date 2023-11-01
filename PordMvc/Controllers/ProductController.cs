@@ -101,6 +101,9 @@ public class ProductController : Controller
     }
     public IActionResult Delete(int Id)
     {
-        
+        var data = context.Product.Find(Id);
+        context.Product.Remove(Id);
+        context.SaveChanges();
+        return RedirectToAction("List");
     }
 }
