@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using PordMvc.Models;
 
 namespace PordMvc.Controllers;
+/*
 public class ProductController : Controller
 {
     private readonly SDbContext context;
@@ -67,3 +68,6 @@ public class ProductController : Controller
         return RedirectToAction("List");
     }
 }
+
+*/
+
