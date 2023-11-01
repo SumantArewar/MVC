@@ -71,3 +71,15 @@ public class ProductController : Controller
 
 */
 
+public class ProductController : Controller
+{
+    private readonly SDbContext context;
+    public ProductController (SDbContext _context)
+    {
+        context = _context;
+    }
+    public IActionResult List()
+    {
+        return View();
+    }
+}
