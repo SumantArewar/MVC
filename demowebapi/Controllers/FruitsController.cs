@@ -30,7 +30,12 @@ namespace demowebapi.Controllers
         {
             Fruits.Add(data);
         }
-        [HttpP]
+        [HttpPut]
+        [Route("Edit/{id}")]
+        public void Put (int id,[FromBody]string data)
+        {
+            
+        }
 
 
 
