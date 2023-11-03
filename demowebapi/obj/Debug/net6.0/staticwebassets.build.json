@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "KCgtXApixg7C7xfUq2T5O8O2wVuaXD2+WFNtNmX2sIE=",
+  "Source": "demowebapi",
+  "BasePath": "_content/demowebapi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
