@@ -14,30 +14,36 @@ public class DeptController : Controller
         context = _context;
     }
 
+    // public IActionResult List()
+    // {
+    //     List<Department> data=null;
+    //     try{
+
+    //         data = context.Departments.ToList();
+    //         if(data.Count==0)
+    //         throw new Exception();
+    //     }
+    //     catch(System.Exception ex)
+    //     {
+    //         ViewBag.ErrorMessage = "0 records present";
+    //         return View("Error");
+    //     }
+    //     return View(data);
+    // }
     public IActionResult List()
     {
-        List<Department> data=null;
-        try{
-
-            data = context.Departments.ToList();
-            if(data.Count==0)
-            throw new Exception();
-        }
-        catch(System.Exception ex)
-        {
-            ViewBag.ErrorMessage = "0 records present";
-            return View("Error");
-        }
+        var data = context.Departments.ToList();
         return View(data);
     }
 
     public IActionResult Display(int id)
     {
         var data = context.Employees.Where(e=>e.DeptId==id);
-        return View();
+        return View(data);
     }
 
     public IActionResult Create()
+
     {
         return View();
     }
