@@ -15,10 +15,22 @@ namespace demowebapi.Controllers
         static List<string> Fruits =new List<string>{"Apple","Mango","Oranges","Grapes","Banana"};
         [HttpGet]
         [Route("ShowFruits")]
-        public IEnumerable<string> Get()
+        public IEnumerable<string> GetFruits()
         {
             return Fruits;
         }
+        [HttpGet("{id}")]
+        public string GetFruits(int id)
+        {
+            return Fruits[id];
+        }
+        [HttpPost]
+        [Route("AddFruits")]
+        public void Post([FromBody] string data)
+        {
+            Fruits.Add(data);
+        }
+        [HttpP]
 
 
 
