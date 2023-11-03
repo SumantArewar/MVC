@@ -12,23 +12,43 @@ namespace demowebapi.Controllers
     [Route("api/[controller]")]
     public class FruitsController : ControllerBase
     {
-        
-        private readonly ILogger<FruitsController> _logger;
-
-        public FruitsController(ILogger<FruitsController> logger)
+        static List<string> Fruits =new List<string>{"Apple","Mango","Oranges","Grapes","Banana"};
+        [HttpGet]
+        [Route("ShowFruits")]
+        public IEnumerable<string> Get()
         {
-            _logger = logger;
+            return Fruits;
         }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View("Error!");
+
+
+
+
+
+
+
+
+
+
+
+
+        // private readonly ILogger<FruitsController> _logger;
+
+        // public FruitsController(ILogger<FruitsController> logger)
+        // {
+        //     _logger = logger;
+        // }
+
+        // public IActionResult Index()
+        // {
+        //     return View();
+        // }
+
+        // [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        // public IActionResult Error()
+        // {
+        //     return View("Error!");
         }
     }
 }
