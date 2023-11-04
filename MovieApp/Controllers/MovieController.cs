@@ -96,36 +96,5 @@ namespace MovieApp.Controllers
                 return BadRequest(ex.Message);
             }
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        // private readonly MovieContext _context;
-
-        // public MovieController(MovieContext context)
-        // {
-        //     _context = context;
-        // }
-
-        // public IActionResult Index()
-        // {
-        //     return View();
-        // }
-
-        // [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        // public IActionResult Error()
-        // {
-        //     return View("Error!");
-        // }
     }
 }
