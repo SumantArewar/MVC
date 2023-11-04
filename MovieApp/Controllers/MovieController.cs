@@ -11,7 +11,7 @@ namespace MovieApp.Controllers
 {
     [ApiController]
     [Route("/[controller]")]
-    public class MovieController : Controller
+    public class MovieController : ControllerBase
     {
         MovieContext context = new MovieContext();
         [HttpGet]
@@ -41,7 +41,18 @@ namespace MovieApp.Controllers
         [Route("AddMovie")]
         public IActionResult Post(Movie movie)
         {
-            if(ModelState.)
+            if(ModelState.IsValid)
+            {
+                try{
+                    context.Movies.Add(movie);
+                    context.SaveChanges();
+                }
+                catch(System.Exception ex)
+                {
+                    return BadRequest(ex.InnerException.Message);
+                }
+            }
+            return Created("Record Added", movie);
         }
 
 
@@ -57,17 +68,17 @@ namespace MovieApp.Controllers
 
 
 
-        private readonly MovieContext _context;
+        // private readonly MovieContext _context;
 
-        public MovieController(MovieContext context)
-        {
-            _context = context;
-        }
+        // public MovieController(MovieContext context)
+        // {
+        //     _context = context;
+        // }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
+        // public IActionResult Index()
+        // {
+        //     return View();
+        // }
 
         // [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         // public IActionResult Error()
