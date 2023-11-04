@@ -9,9 +9,33 @@ using MovieApp.Models;
 
 namespace MovieApp.Controllers
 {
-    [Route("[controller]")]
+    [ApiController]
+    [Route("/[controller]")]
     public class MovieController : Controller
     {
+        MovieContext context = new MovieContext();
+        [HttpGet]
+        [Route("ListMovies")]
+        public IActionResult Get()
+        {
+            // var datda = context.Movies.ToList();
+            var data = from m in context.Movies select m;
+            return Ok(data);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         private readonly MovieContext _context;
 
         public MovieController(MovieContext context)
