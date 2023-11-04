@@ -54,12 +54,12 @@ namespace MovieApp.Controllers
             }
             return Created("Record Added", movie);
         }
-        public IActionResult Edit()
-        {
-            // var datda = context.Movies.ToList();
-            var data = from m in context.Movies select m;
-            return Ok(data);
-        }
+        // public IActionResult Edit()
+        // {
+        //     // var datda = context.Movies.ToList();
+        //     var data = from m in context.Movies select m;
+        //     return Ok(data);
+        // }
         [HttpPut]
         [Route("EditMovie/{id}")]
         public IActionResult Put(int id ,Movie movie)
