@@ -22,6 +22,27 @@ namespace MovieApp.Controllers
             var data = from m in context.Movies select m;
             return Ok(data);
         }
+        [HttpGet]
+        [Route("ListMovies/{id}")]
+        public IActionResult Get(int id)
+        {
+            if(id==null)
+            {
+                return BadRequest("Id cannot be Null");
+            }
+            var data = (from m in context.Movies where m.Id == id select m).FirstOrDefault();
+            if(data == null)
+            {
+                return NotFound($"Movie {id} not Found");
+            }
+            return Ok(data);
+        }
+        [HttpPost]
+        [Route("AddMovie")]
+        public IActionResult Post(Movie movie)
+        {
+            if(ModelState.)
+        }
 
 
 
