@@ -39,7 +39,7 @@ namespace MovieApp.Controllers
         }
         [HttpPost]
         [Route("AddMovie")]
-        public IActionResult Post([FromBody[] Movie movie)
+        public IActionResult Post(Movie movie)
         {
             if(ModelState.IsValid)
             {
