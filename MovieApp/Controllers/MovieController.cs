@@ -59,42 +59,45 @@ namespace MovieApp.Controllers
         //     // var datda = context.Movies.ToList();
         //     var data = from m in context.Movies select m;
         //     return Ok(data);
+        // // }
+
+
+
+        // [HttpPut]
+        // [Route("EditMovie/{id}")]
+        // public IActionResult Put(int id ,Movie movie)
+        // {
+        //     if(ModelState.IsValid)
+        //     {
+        //         Movie omovie = context.Movies.Find(movie.Id);
+        //         omovie.Name = movie.Name;
+        //         omovie.Rating = movie.Rating;
+        //         omovie.YearRelease = movie.YearRelease;
+        //         context.SaveChanges();
+        //         return Ok();                
+        //     }
+        //     return BadRequest("Unable to Edit Record");
         // }
-        [HttpPut]
-        [Route("EditMovie/{id}")]
-        public IActionResult Put(int id ,Movie movie)
-        {
-            if(ModelState.IsValid)
-            {
-                Movie omovie = context.Movies.Find(movie.Id);
-                omovie.Name = movie.Name;
-                omovie.Rating = movie.Rating;
-                omovie.YearRelease = movie.YearRelease;
-                context.SaveChanges();
-                return Ok();                
-            }
-            return BadRequest("Unable to Edit Record");
-        }
-        [HttpDelete]
-        [Route("DeleteMovie/{id}")]
-        public IActionResult Delete(int id)
-        {
-            try
-            {
-                var detail = context.Details.Where(d=>d.MovieId==id);
-                if(detail.Count() != 0)
-                {
-                    throw new Exception("Cannot Delete Movie");
-                }
-                var data = context.Movies.Find(id);
-                context.Movies.Remove(data);
-                context.SaveChanges();
-                return Ok();
-            }
-            catch (System.Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-        }
+        // [HttpDelete]
+        // [Route("DeleteMovie/{id}")]
+        // public IActionResult Delete(int id)
+        // {
+        //     try
+        //     {
+        //         var detail = context.Details.Where(d=>d.MovieId==id);
+        //         if(detail.Count() != 0)
+        //         {
+        //             throw new Exception("Cannot Delete Movie");
+        //         }
+        //         var data = context.Movies.Find(id);
+        //         context.Movies.Remove(data);
+        //         context.SaveChanges();
+        //         return Ok();
+        //     }
+        //     catch (System.Exception ex)
+        //     {
+        //         return BadRequest(ex.Message);
+        //     }
+        // }
     }
 }
