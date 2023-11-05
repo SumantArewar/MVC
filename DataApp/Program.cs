@@ -39,6 +39,8 @@ catch(Exception ex)
 }
 finally{con.Close();}
 }
+
+
 void Show()
 {
 string connectionString = "User ID=sa;password=examlyMssql@123; server=localhost;Database=SumantDb;trusted_connection=false;Persist Security Info=False;Encrypt=False";
