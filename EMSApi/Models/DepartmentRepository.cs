@@ -9,11 +9,27 @@ namespace EMSApi.Models
     {
         EmsDbContext context = new EmsDbContext();
 
+        public void FindDept(int id)
+        {
+            var data = context.Departments.Find(id);
+            return data;
+        }
         public void AddDept(Department dept)
         {
             context.Departments.Add(dept);
             context.SaveChanges();
         }
-        public void EditDept(De)
+        public void EditDept(Department dept)
+        {
+            Department department = context.Departments.Find(dept.Id);
+        }
+        public void DeleteDept(Department dept)
+        {
+            Department department = context.Departments.Find(dept.Id);
+        }
+        public List<Department>GetDepartments()
+        {
+            return
+        }
     }
 }
