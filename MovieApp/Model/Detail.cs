@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MovieApp.Models
 {
-    public class Deatil
+    public class Detail
     {
         [Key]
         public int DeatilId{get;set;}

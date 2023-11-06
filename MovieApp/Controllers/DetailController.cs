@@ -55,10 +55,21 @@ namespace MovieApp.Controllers
                 try
                 {
                     context.Details.Add(detail);
-                    context
-
+                    context.SaveChanges();
+                }
+                catch(System.Exception ex)
+                {
+                    return BadRequest(ex.InnerException.Message);
                 }
             }
+            return Created("Record Added",detail);
+        }
+        [HttpDelete]
+        [Route("DeleteDetails/{id}")]
+        public IActionResult Delete(int id)
+        {
+            var data = context.Details.Find(id);
+            context.Re
         }
 
 
