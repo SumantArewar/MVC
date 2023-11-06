@@ -8,7 +8,10 @@ namespace EMSApi.Models
     public interface IDept
     {
         List<Department> GetDepartments();
-        Department
+        Department FindDept(int id);
+        void AddDept(Department dept);
+        void EditDept(Department dept);
+        void DeleteDept(int id);
         
     }
 }
