@@ -22,14 +22,19 @@ namespace EMSApi.Models
         public void EditDept(Department dept)
         {
             Department department = context.Departments.Find(dept.Id);
+            dept.DeptName = department.DeptName;
+            dept.Location = department.Location;
+            context.SaveChanges();
         }
         public void DeleteDept(Department dept)
         {
             Department department = context.Departments.Find(dept.Id);
+            context.Departments.Remove(department);
+            context.SaveChanges();
         }
         public List<Department>GetDepartments()
         {
-            return
+            return context.Departments.ToList();
         }
     }
 }
