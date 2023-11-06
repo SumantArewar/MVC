@@ -43,7 +43,15 @@ namespace EMSApi.Controllers
         [Route("ListDept/{id}")]
         public IActionResult GetDept(int id)
         {
-            KeyValuePair
+            var data = repo.FindDept(id);
+            return Ok(data);
+        }
+        [HttpPut]
+        [Route("EditDept/{id}")]
+        public IActionResult PutDept(int id,Department department)
+        {
+            repo.EditDept(department);
+            return Ok();
         }
     } 
     
