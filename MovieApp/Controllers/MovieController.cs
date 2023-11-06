@@ -14,6 +14,7 @@ namespace MovieApp.Controllers
     public class MovieController : ControllerBase
     {
         MovieContext context = new MovieContext();
+        
         [HttpGet]
         [Route("ListMovies")]
         public IActionResult Get()
