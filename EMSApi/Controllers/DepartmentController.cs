@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
 
 namespace EMSApi.Controllers
 {
@@ -13,6 +14,20 @@ namespace EMSApi.Controllers
     {
         [ApiController]
         [Route("[controller]")]
-        public IActionRe
+        public class DepartmentController : ControllerBase
+        {
+            IDecrementOperators repo;
+            public DepartmentController(IDecrementOperators _repo)
+            {
+                this.repo = _repo;
+            }
+            [HttpGet]
+            [Route("ListDept")]
+            public IActionResult GetDept()
+            {
+                var data = repo.GetDepartments();
+                return Ok(data);
+            }
+        } 
     }
 }
