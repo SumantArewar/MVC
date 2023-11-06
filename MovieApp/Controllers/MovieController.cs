@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-// using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using MovieApp.Models;
 
 namespace MovieApp.Controllers
@@ -44,7 +44,8 @@ namespace MovieApp.Controllers
         {
             if(ModelState.IsValid)
             {
-                try{
+                try
+                {
                     context.Movies.Add(movie);
                     context.SaveChanges();
                 }

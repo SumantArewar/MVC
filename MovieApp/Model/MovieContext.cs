@@ -20,9 +20,9 @@ namespace MovieApp.Models
             }
         }
 
-        internal void SaveChanges()
-        {
-            throw new NotImplementedException();
-        }
+        // internal void SaveChanges()
+        // {
+        //     throw new NotImplementedException();
+        // }
     }
 }
