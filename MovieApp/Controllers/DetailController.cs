@@ -64,13 +64,18 @@ namespace MovieApp.Controllers
             }
             return Created("Record Added",detail);
         }
+        
+
         [HttpDelete]
         [Route("DeleteDetails/{id}")]
         public IActionResult Delete(int id)
         {
             var data = context.Details.Find(id);
-            context.Re
+            context.Details.Remove(data);
+            context.SaveChanges();
+            return Ok();
         }
+
 
 
         // private readonly ILogger<DetailController> _logger;
