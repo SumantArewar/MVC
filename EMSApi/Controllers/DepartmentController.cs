@@ -53,6 +53,13 @@ namespace EMSApi.Controllers
             repo.EditDept(department);
             return Ok();
         }
+        [HttpDelete]
+        [Route("DeleteDept/{id}")]
+        public IActionResult DeleteDept(int id)
+        {
+            repo.DeleteDept(id);
+            return Ok();
+        }
     } 
     
 }
