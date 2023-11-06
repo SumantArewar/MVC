@@ -6,7 +6,7 @@ namespace MovieApp.Models
     public class MovieContext : DbContext
     {
         public virtual DbSet<Movie> Movies{get;set;}
-        public virtual DbSet<Deatil>Details{get;set;}
+        public virtual DbSet<Detail>Details{get;set;}
 
         public MovieContext(){}
         public MovieContext(DbContextOptions<MovieContext>options):base(options)

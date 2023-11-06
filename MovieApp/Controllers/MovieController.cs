@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
+// using Microsoft.EntityFrameworkCore;
 using MovieApp.Models;
 
 namespace MovieApp.Controllers
@@ -14,7 +14,7 @@ namespace MovieApp.Controllers
     public class MovieController : ControllerBase
     {
         MovieContext context = new MovieContext();
-        
+
         [HttpGet]
         [Route("ListMovies")]
         public IActionResult Get()
