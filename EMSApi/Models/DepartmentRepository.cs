@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using EMSApi.Models;
 
 namespace EMSApi.Models
 {
@@ -9,7 +10,7 @@ namespace EMSApi.Models
     {
         EmsDbContext context = new EmsDbContext();
 
-        public void FindDept(int id)
+        public Department FindDept(int id)
         {
             var data = context.Departments.Find(id);
             return data;
@@ -26,9 +27,9 @@ namespace EMSApi.Models
             dept.Location = department.Location;
             context.SaveChanges();
         }
-        public void DeleteDept(Department dept)
+        public void DeleteDept(int id)
         {
-            Department department = context.Departments.Find(dept.Id);
+            Department department = context.Departments.Find(id);
             context.Departments.Remove(department);
             context.SaveChanges();
         }

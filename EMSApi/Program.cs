@@ -33,4 +33,3 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
-tu tu hai awhi dil ne jise apna kaha tu hai jaha , mia hu waha ab toh ye jina tere binn hai sajaaaaaa

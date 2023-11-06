@@ -6,39 +6,45 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
+using EMSApi.Models;
+
 
 namespace EMSApi.Controllers
 {
+    
+    [ApiController]
     [Route("[controller]")]
-    public class DepartmentController : Controller
+    public class DepartmentController : ControllerBase
     {
-        [ApiController]
-        [Route("[controller]")]
-        public class DepartmentController : ControllerBase
+        IDept repo;
+        public DepartmentController( IDept _repo)
         {
-            IDecrementOperators repo;
-            public DepartmentController(IDecrementOperators _repo)
+            this.repo = _repo;
+        }
+        [HttpGet]
+        [Route("ListDept")]
+        public IActionResult GetDept()
+        {
+            var data = repo.GetDepartments();
+            return Ok(data);
+        }
+        [HttpPost]
+        [Route("Create")]
+        public IActionResult PostDept(Department department)
+        {
+            if(ModelState.IsValid)
             {
-                this.repo = _repo;
+                repo.AddDept(department);
+                return Created("Record Added",department);
             }
-            [HttpGet]
-            [Route("ListDept")]
-            public IActionResult GetDept()
-            {
-                var data = repo.GetDepartments();
-                return Ok(data);
-            }
-            [HttpPost]
-            [Route("Create")]
-            public IActionResult PostDept(Department department)
-            {
-                if(ModelState.IsValid)
-                {
-                    repo.AddDept(department);
-                    return Created("Record Added",department);
-                }
-                return BadRequest();
-            }
-        } 
-    }
+            return BadRequest();
+        }
+        [HttpGet]
+        [Route("ListDept/{id}")]
+        public IActionResult GetDept(int id)
+        {
+            KeyValuePair
+        }
+    } 
+    
 }
