@@ -12,6 +12,8 @@ builder.Services.AddControllers();
 var connectionString = builder.Configuration.GetConnectionString("mycon");
 builder.Services.AddDbContext<EmsDbContext>(options=>options.UseSqlServer(connectionString));
 
+builder.Services.AddTransient<IDept,DepartmentRepository>();
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
