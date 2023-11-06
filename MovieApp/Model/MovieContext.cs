@@ -19,10 +19,5 @@ namespace MovieApp.Models
                 optionsBuilder.UseSqlServer("User ID=sa;password=examlyMssql@123; server=localhost;Database=EntDb;trusted_connection=false;Persist Security Info=False;Encrypt=False;");
             }
         }
-
-        // internal void SaveChanges()
-        // {
-        //     throw new NotImplementedException();
-        // }
     }
 }
