@@ -38,7 +38,7 @@ namespace MovieApp.Controllers
             {
                 return BadRequest("Id cannot be null");
             }
-            var data = (from m in context.Details where m.DetailId == id select m).FirstOrDefault();
+            var data = (from m in context.Details where m.DeatilId == id select m).FirstOrDefault();
 
             if (data==null)
             {
