@@ -7,7 +7,7 @@ namespace MovieApp.Models
     public class Detail
     {
         [Key]
-        public int DetailId{get;set;}
+        public int DeatilId{get;set;}
         [Required]
         [MaxLength(30)]
         public string ?Actor{get;set;}
