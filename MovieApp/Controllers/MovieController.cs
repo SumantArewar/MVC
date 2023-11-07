@@ -23,6 +23,7 @@ namespace MovieApp.Controllers
             var data = from m in context.Movies select m;
             return Ok(data);
         }
+        // [Display]
         [HttpGet]
         [Route("ListMovies/{id}")]
         public IActionResult Get(int id)
