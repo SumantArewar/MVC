@@ -30,15 +30,27 @@ public class DeptController : Controller
     //     }
     //     return View(data);
     // }
+
     public IActionResult List()
     {
-        var data = context.Departments.ToList();
+        List<Department> data = null;
+        try
+        {
+            data = context.Departments.ToList();
+            if(data.Count==0)
+            throw new Exception();
+        }
+        catch(System.Exception ex)
+        {
+            ViewBag.ErrorMessage = "0 records present";
+            return View("Error");
+        }
         return View(data);
     }
 
-    // public IActionResult Display(int id)
+    // public IActionResult List()
     // {
-    //     var data = context.Employees.Where(e=>e.DeptId==id);
+    //     var data = context.Departments.ToList();
     //     return View(data);
     // }
 
@@ -48,7 +60,6 @@ public class DeptController : Controller
         return View(data);
     }
     public IActionResult Create()
-
     {
         return View();
     }
@@ -82,7 +93,6 @@ public class DeptController : Controller
         }
         return View();
     }
-
     public IActionResult Delete(int id)
     {
         var data = context.Product.Find(id);
