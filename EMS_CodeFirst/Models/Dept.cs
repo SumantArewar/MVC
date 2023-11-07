@@ -14,7 +14,5 @@ public class Dept
     public string Name {get;set;}
     [MaxLength(30)]
     public string location{get;set;}
-
     public ICollection<Employee> Employee{get;set;}
-
 }

@@ -24,21 +24,22 @@ namespace EMS_CodeFirst.Models;
 //     }
 // }
 
-public class EMS_CodeFirstDbContext : DBContext
+public class EMS_CodeFirstDbContext : DbContext
 {
-    public virtual DbSet<Dept> Depts{get;set;}
-    public virtual DbSet<Employee> Employees{get;set;}
+    public virtual DBSet<Dept>Depts{get;set;}
+    public virtual DBSet<Employee>Employees{get;set;}
 
     public EMS_CodeFirstDbContext(){}
+
     public EMS_CodeFirstDbContext(DbContextOptions<EMS_CodeFirstDbContext>options) : base(options)
     {
     }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    protected override void Onconfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         if(!optionsBuilder.IsConfigured)
         {
-            optionsBuilder.UseSqlServer("ConnectionString");
+            optionsBuilder.UseSqlServer("connectionString");
         }
     }
 }
