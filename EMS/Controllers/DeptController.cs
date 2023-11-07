@@ -93,17 +93,28 @@ public class DeptController : Controller
         }
         return View();
     }
-    public IActionResult Delete(int id)
+    // public IActionResult Delete(int id)
+    // {
+    //     var data = context.Product.Find(id);
+    //     return View(data);
+    // }
+    // [HttpPost]
+    // public IActionResult Delete(Product p)
+    // {
+    //     Product product = context.Product.Find(p.Id);
+    //     context.Product.Remove(product);
+    //     context.SaveChanges();
+    //     return RedirectToAction("List");
+    // }
+
+    public IActionResult Delete (int id)
     {
         var data = context.Product.Find(id);
         return View(data);
     }
     [HttpPost]
-    public IActionResult Delete(Product p)
+    public IActionResult Delete (Product p)
     {
-        Product product = context.Product.Find(p.Id);
-        context.Product.Remove(product);
-        context.SaveChanges();
-        return RedirectToAction("List");
+        Product product = 
     }
 }
