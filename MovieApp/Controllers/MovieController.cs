@@ -101,5 +101,16 @@ namespace MovieApp.Controllers
                 return BadRequest(ex.Message);
             }
         }
+        [HttpGet]
+        [Route("DisplayByRating")]
+        public  IActionResult GetDisplayByRating([FromQuery] int rating)
+        {
+            var data = context.Movies.Where(m=>m.Rating == rating);
+            if(data.Count()== 0)
+            {
+                return NotFound($"No Movies in rating {rating}");
+            }
+            return Ok(data);
+        }
     }
 }
