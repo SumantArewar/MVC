@@ -74,47 +74,43 @@ public class DeptController : Controller
         }
         return View();
     }
-    public IActionResult Edit(int id)
+    // public IActionResult Edit(int id)
+    // {
+    //     var data = context.Departments.Find(id);
+    //     return View(data);
+    // }
+    // [HttpPost]
+    // public IActionResult Edit(Department department)
+    // {
+    //     if(ModelState.IsValid)
+    //     {
+    //         Department dept = context.Departments.Find(department.Id);
+    //         dept.DeptName = department.DeptName;
+    //         dept.Location = department.Location;
+            
+    //         context.SaveChanges();
+    //         return RedirectToAction("List");
+    //     }
+    //     return View();
+    // }
+
+    public IActionResult Edit()
+    {
+
+    }
+    [HttpPost]
+    public IActionResult 
+    public IActionResult Delete(int id)
     {
         var data = context.Departments.Find(id);
         return View(data);
     }
     [HttpPost]
-    public IActionResult Edit(Department department)
+    public IActionResult Delete(Department d)
     {
-        if(ModelState.IsValid)
-        {
-            Department dept = context.Departments.Find(department.Id);
-            dept.DeptName = department.DeptName;
-            dept.Location = department.Location;
-            
-            context.SaveChanges();
-            return RedirectToAction("List");
-        }
-        return View();
-    }
-    // public IActionResult Delete(int id)
-    // {
-    //     var data = context.Product.Find(id);
-    //     return View(data);
-    // }
-    // [HttpPost]
-    // public IActionResult Delete(Product p)
-    // {
-    //     Product product = context.Product.Find(p.Id);
-    //     context.Product.Remove(product);
-    //     context.SaveChanges();
-    //     return RedirectToAction("List");
-    // }
-
-    public IActionResult Delete (int id)
-    {
-        var data = context.Product.Find(id);
-        return View(data);
-    }
-    [HttpPost]
-    public IActionResult Delete (Product p)
-    {
-        Product product = 
+        Department department = context.Departments.Find(d.Id);
+        context.Departments.Remove(department);
+        context.SaveChanges();
+        return RedirectToAction("List");
     }
 }
