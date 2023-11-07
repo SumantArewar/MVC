@@ -6,8 +6,16 @@ using System.Data.SqlClient;
 
 namespace EMS.Controllers;
 
-public class DeptController : Controller
-{
+// public class DeptController : Controller
+// {
+//     private readonly EmsDbContext context;
+//     public DeptController(EmsDbContext _context)
+//     {
+//         context = _context;
+//     }
+
+ public class DeptController : Controller
+ {
     private readonly EmsDbContext context;
     public DeptController(EmsDbContext _context)
     {
@@ -86,10 +94,9 @@ public class DeptController : Controller
     [HttpPost]
     public IActionResult Delete(Product p)
     {
-            Product product = context.Product.Find(p.Id);
-            context.Product.Remove(product);
-            context.SaveChanges();
-            return RedirectToAction("List");
-        
+        Product product = context.Product.Find(p.Id);
+        context.Product.Remove(product);
+        context.SaveChanges();
+        return RedirectToAction("List");
     }
 }

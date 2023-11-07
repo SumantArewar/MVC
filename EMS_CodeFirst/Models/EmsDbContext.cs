@@ -34,7 +34,6 @@ public class EMS_CodeFirstDbContext : DbContext
     public EMS_CodeFirstDbContext(DbContextOptions<EMS_CodeFirstDbContext>options) : base(options)
     {
     }
-
     protected override void Onconfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         if(!optionsBuilder.IsConfigured)
