@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MovieApp.Models;
+using MovieApp.ViewModel;
 
 namespace MovieApp.Controllers
 {
@@ -15,6 +16,25 @@ namespace MovieApp.Controllers
     {
         MovieContext context = new MovieContext();
 
+        // [Display]
+
+        [HttpGet]
+        [Route("ShowMovies")]
+        public IActionResult GetShowMovies()
+        {
+            var data = context.Movie_VMs.FromSqlInterpolated<Movie_VM>($"MovieInfo");
+            return Ok(data);
+        }
+        // [HttpGet]
+        // [Route("DisplayMovies/Rating/Year")]
+        // public IActionResult GetDisplayMovies(int rating,int year)
+        // {
+        //     var data = from m in context.Movies where m.Rating == rating && m.YearRelease == year select m;
+        //     if(data.Count() == 0)
+        //     {
+
+        //     }
+        // }
         [HttpGet]
         [Route("ListMovies")]
         public IActionResult Get()
@@ -23,7 +43,6 @@ namespace MovieApp.Controllers
             var data = from m in context.Movies select m;
             return Ok(data);
         }
-        // [Display]
         [HttpGet]
         [Route("ListMovies/{id}")]
         public IActionResult Get(int id)

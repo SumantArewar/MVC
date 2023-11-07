@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
+using MovieApp.ViewModel;
 
 namespace MovieApp.Models
 {
@@ -7,6 +8,7 @@ namespace MovieApp.Models
     {
         public virtual DbSet<Movie> Movies{get;set;}
         public virtual DbSet<Detail>Details{get;set;}
+        public virtual DbSet<Movie_VM>Movie_VMs{get;set;}
 
         public MovieContext(){}
         public MovieContext(DbContextOptions<MovieContext>options):base(options)
