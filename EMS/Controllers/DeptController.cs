@@ -6,16 +6,8 @@ using System.Data.SqlClient;
 
 namespace EMS.Controllers;
 
-// public class DeptController : Controller
-// {
-//     private readonly EmsDbContext context;
-//     public DeptController(EmsDbContext _context)
-//     {
-//         context = _context;
-//     }
-
- public class DeptController : Controller
- {
+public class DeptController : Controller
+{
     private readonly EmsDbContext context;
     public DeptController(EmsDbContext _context)
     {
@@ -44,12 +36,17 @@ namespace EMS.Controllers;
         return View(data);
     }
 
+    // public IActionResult Display(int id)
+    // {
+    //     var data = context.Employees.Where(e=>e.DeptId==id);
+    //     return View(data);
+    // }
+
     public IActionResult Display(int id)
     {
         var data = context.Employees.Where(e=>e.DeptId==id);
         return View(data);
     }
-
     public IActionResult Create()
 
     {
