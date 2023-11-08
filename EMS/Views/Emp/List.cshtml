@@ -33,6 +33,11 @@
 <a asp-controller ="Emp" asp-action="Create">Add Emplyee</a>
 <div>
     <table class = "table">
-        <thead 
+        <thead>
+            <th>
+                @Html.DisplayNameFor(e=>e.EmpId)
+                @Html.DisplayNameFor(e=>e.Name)
+            </th>
+        </thead>
     </table>
 </div>
