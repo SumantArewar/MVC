@@ -59,47 +59,57 @@ public class DeptController : Controller
         var data = context.Employees.Where(e=>e.DeptId==id);
         return View(data);
     }
-    public IActionResult Create()
-    {
-        return View();
-    }
-    [HttpPost]
-    public IActionResult Create(Department department)
-    {
-        if(ModelState.IsValid)
-        {
-            context.Departments.Add(department);
-            context.SaveChanges();
-            return RedirectToAction("List");
-        }
-        return View();
-    }
-    // public IActionResult Edit(int id)
+    // public IActionResult Create()
     // {
-    //     var data = context.Departments.Find(id);
-    //     return View(data);
+    //     return View();
     // }
     // [HttpPost]
-    // public IActionResult Edit(Department department)
+    // public IActionResult Create(Department department)
     // {
     //     if(ModelState.IsValid)
     //     {
-    //         Department dept = context.Departments.Find(department.Id);
-    //         dept.DeptName = department.DeptName;
-    //         dept.Location = department.Location;
-            
+    //         context.Departments.Add(department);
     //         context.SaveChanges();
     //         return RedirectToAction("List");
     //     }
     //     return View();
     // }
 
-    public IActionResult Edit()
+    public IActionResult Create()
     {
-
+        return View();
     }
     [HttpPost]
-    public IActionResult 
+    public IActionResult Create(Department d)
+    {
+        if(ModelState.IsValid)
+        {
+            Department department = context.Departments.Find(d.Id);
+            context.Departments.Add();
+            context.SaveChanges();
+            return RedirectToAction("Orders");
+        }
+    }
+    public IActionResult Edit(int id)
+    {
+        var data = context.Departments.Find(id);
+        return View(data);
+    }
+    [HttpPost]
+    public IActionResult Edit(Department department)
+    {
+        if(ModelState.IsValid)
+        {
+            Department dept = context.Departments.Find(department.Id);
+            dept.DeptName = department.DeptName;
+            dept.Location = department.Location;
+            
+            context.SaveChanges();
+            return RedirectToAction("List");
+        }
+        return View();
+    }
+
     public IActionResult Delete(int id)
     {
         var data = context.Departments.Find(id);
