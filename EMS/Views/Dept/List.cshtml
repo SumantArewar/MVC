@@ -11,16 +11,17 @@
         <tbody>
             @foreach(var dept in @Model)
             {
-                <td>@dept.Id</td>
-                <td>@dept.DeptName</td>
-                <td>@dept.Location</td>
-                <td></td>
-                <td>
-                    @Html.ActionLink("Details","Display",new {id=dept.Id}) &nbsp; &nbsp;
-                    @Html.ActionLink("Edit","Edit",new {id=dept.Id}) &nbsp; &nbsp;
-                    @Html.ActionLink("Delete","Delete",new {id=dept.Id}) &nbsp; &nbsp;
-
-                </td>
+                <tr>
+                    <td>@dept.Id</td>
+                    <td>@dept.DeptName</td>
+                    <td>@dept.Location</td>
+                    <td></td>
+                    <td>
+                        @Html.ActionLink("Details","Display",new {id=dept.Id}) &nbsp; &nbsp;
+                        @Html.ActionLink("Edit","Edit",new {id=dept.Id}) &nbsp; &nbsp;
+                        @Html.ActionLink("Delete","Delete",new {id=dept.Id}) &nbsp; &nbsp;
+                    </td>
+                </tr>
             }
         </tbody>
     </table>
