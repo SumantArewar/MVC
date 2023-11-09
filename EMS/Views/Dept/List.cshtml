@@ -1,4 +1,4 @@
-@model IEnumerable<Department>
+@* @model IEnumerable<Department>
 <div class = 'container'>
 
     <table class = "table">
@@ -26,4 +26,17 @@
         </tbody>
     </table>
 
-    </div>
+    </div> *@
+
+@model IEnumerable<Department>
+<div class = 'container'>
+    <table class = "table">
+        <thead>
+            <th>@Html.DisplayNameFor(d=>d.Id)</th>
+            <th>@Html.DisplayNameFor(d=>d.DeptName)</th>
+            <th>@Html.DisplayNameFor(d=>d.Location)</th>
+        </thead>
+    </table>
+    <tbody>
+    
+</div>
