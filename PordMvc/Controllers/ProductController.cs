@@ -127,9 +127,9 @@ public class ProductController : Controller
         return View(data);
     }
     [HttpPost]
-    public IActionResult Delete(Product p)
+    public IActionResult Delete(int id)
     {
-            Product product = context.Product.Find(p.Id);
+            var product = context.Product.Find(id);
             context.Product.Remove(product);
             context.SaveChanges();
             return RedirectToAction("List");

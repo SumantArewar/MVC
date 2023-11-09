@@ -130,16 +130,29 @@ public IActionResult Create(Department d)
         return View();
     }
 
+    // public IActionResult Delete(int id)
+    // {
+    //     var data = context.Departments.Find(id);
+    //     return View(data);
+    // }
+    // [HttpPost]
+    // public IActionResult Delete(Department d)
+    // {
+    //     Department department = context.Departments.Find(d.Id);
+    //     context.Departments.Remove(department);
+    //     context.SaveChanges();
+    //     return RedirectToAction("List");
+    // }
+
+    public IActionResult Delete(int id)
+    {
+        return View();
+    }
+    [HttpPost]
     public IActionResult Delete(int id)
     {
         var data = context.Departments.Find(id);
-        return View(data);
-    }
-    [HttpPost]
-    public IActionResult Delete(Department d)
-    {
-        Department department = context.Departments.Find(d.Id);
-        context.Departments.Remove(department);
+        context,Departments.Remove(data);
         context.SaveChanges();
         return RedirectToAction("List");
     }
