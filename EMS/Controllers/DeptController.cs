@@ -59,6 +59,7 @@ public class DeptController : Controller
         var data = context.Employees.Where(e=>e.DeptId==id);
         return View(data);
     }
+
     // public IActionResult Create()
     // {
     //     return View();
@@ -75,35 +76,54 @@ public class DeptController : Controller
     //     return View();
     // }
 
-    public IActionResult Create()
+public IActionResult Create()
+{
+    return View();
+}
+[HttpPost]
+public IActionResult Create(Department d)
+{
+    if(ModelState.IsValid)
     {
-        return View();
+        context.Departments.Add(d);
+        context.SaveChanges();
+        return RedirectToAction("List");
     }
-    [HttpPost]
-    public IActionResult Create(Department d)
-    {
-        if(ModelState.IsValid)
-        {
-            Department department = context.Departments.Find(d.Id);
-            context.Departments.Add();
-            context.SaveChanges();
-            return RedirectToAction("Orders");
-        }
-    }
+    return View();
+}
+    // public IActionResult Edit(int id)
+    // {
+    //     var data = context.Departments.Find(id);
+    //     return View(data);
+    // }
+    // [HttpPost]
+    // public IActionResult Edit(Department department)
+    // {
+    //     if(ModelState.IsValid)
+    //     {
+    //         Department dept = context.Departments.Find(department.Id);
+    //         dept.DeptName = department.DeptName;
+    //         dept.Location = department.Location;
+            
+    //         context.SaveChanges();
+    //         return RedirectToAction("List");
+    //     }
+    //     return View();
+    // }
+
     public IActionResult Edit(int id)
     {
         var data = context.Departments.Find(id);
         return View(data);
     }
     [HttpPost]
-    public IActionResult Edit(Department department)
+    public IActionResult Edit(Department dd)
     {
         if(ModelState.IsValid)
         {
-            Department dept = context.Departments.Find(department.Id);
-            dept.DeptName = department.DeptName;
-            dept.Location = department.Location;
-            
+            Department department = context.Departments.Find(dd.Id);
+            department.DeptName = dd.DeptName;
+            department.Location = dd.Location;
             context.SaveChanges();
             return RedirectToAction("List");
         }
