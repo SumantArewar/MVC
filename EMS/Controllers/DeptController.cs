@@ -149,10 +149,10 @@ public IActionResult Create(Department d)
         return View();
     }
     [HttpPost]
-    public IActionResult Delete(int id)
+    public IActionResult DeleteConfirmed(int id)
     {
         var data = context.Departments.Find(id);
-        context,Departments.Remove(data);
+        context.Departments.Remove(data);
         context.SaveChanges();
         return RedirectToAction("List");
     }
