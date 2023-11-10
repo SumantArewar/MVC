@@ -28,7 +28,7 @@
 
     </div> *@
 
-@model IEnumerable<Deparment>
+@model IEnumerable<Department>
 <div class = 'container'>
     <table class ="table">
         <thead>
@@ -37,9 +37,20 @@
             <th>@Html.DisplayNameFor(e=>e.Location)</th>
         </thead>
         <tbody>
-            <tr>
-                <td>@</td>
-            </tr>
+            @foreach(var dept in @Model)
+            {
+                <tr>
+                    <td>@dept.Id</td>
+                    <td>@dept.DeptName</td>
+                    <td>@dept.Location</td>
+                    <td></td>
+                    <td>
+                        @Html.ActionLink("Details","Display",new{id=dept.Id})
+                        @Html.ActionLink("Edit","Edit",new{id=dept.Id})
+                        @Html.ActionLink("Delete","Delete",new{id=dept.Id})
+                    </td>
+                </tr>
+            }
         </tbody>
     </table>
 </div>
