@@ -28,30 +28,20 @@
 
     </div> *@
 
-@model IEnumerable<Department>
+@model IEnumerable<Deparment>
 <div class = 'container'>
-    <table class = "table">
+    <table class ="table">
         <thead>
-            <th>@Html.DisplayNameFor(d=>d.Id)</th>
-            <th>@Html.DisplayNameFor(d=>d.DeptName)</th>
-            <th>@Html.DisplayNameFor(d=>d.Location)</th>
+            <th>@Html.DisplayNameFor(e=>e.Id)</th>
+            <th>@Html.DisplayNameFor(e=>e.DeptName)</th>
+            <th>@Html.DisplayNameFor(e=>e.Location)</th>
         </thead>
         <tbody>
-            @foreach(var dept in @Model)
-            {
-                <tr>
-                    <td>@dept.Id</td>
-                    <td>@dept.DeptName</td>
-                    <td>@dept.Location</td>
-                    <td></td>
-                    <td>
-                        @Html.ActionLink("Details","Display",new{id=dept.Id})
-                        @Html.ActionLink("Edit","Edit",new{id=dept.Id})
-                        @Html.ActionLink("Delte","Delete",new{id=dept.Id})
-                    </td>
-                </tr>
-            }
+            <tr>
+                <td>@</td>
+            </tr>
         </tbody>
-
     </table>
 </div>
+
+
