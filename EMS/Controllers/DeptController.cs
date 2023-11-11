@@ -146,7 +146,8 @@ public IActionResult Create(Department d)
 
     public IActionResult Delete(int id)
     {
-        return View();
+        var data = context.Departments.Find(id);
+        return View(data);
     }
     [HttpPost]
     public IActionResult DeleteConfirmed(int id)
