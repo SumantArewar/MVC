@@ -59,7 +59,7 @@ namespace Racing.Controllers
                 context.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(data);
+            return View();
         }
 
         public IActionResult Delete(int id)
@@ -68,12 +68,20 @@ namespace Racing.Controllers
             return View(data);
         }
         [HttpPost]
-        public IActionResult Delete(int id)
+        public IActionResult Delete(Track Tr)
         {
-            var data = context.Tracks.Find(id);
-            
-            return View(data);
+            Track track = context.Tracks.Find(Tr.TrId);
+            context.Tracks.Remove(track);
+            context.SaveChanges();
+            return RedirectToAction("Index");
         }
+        // public IActionResult DeleteConfirmed(int id)
+        // {
+        //     var data = context.Tracks.Find(id);
+        //     context.Tracks.Remove(data);
+        //     context.SaveChanges();
+        //     return View(data);
+        // }
 
     }
 }
