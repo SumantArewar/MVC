@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.SqlServer;
 
 namespace Racing.Models
 {
-    public class RDbContext :DbCon
+    public class RDbContext : DbContext
     {
         public virtual DbSet<Bike>Bikes{get;set;}
         public virtual DbSet<Track>Tracks{get;set;}
