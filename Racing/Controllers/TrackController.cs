@@ -34,16 +34,46 @@ namespace Racing.Controllers
         [HttpPost]
         public IActionResult Create(Track T)
         {
-            context.Tracks.Add(T);
-            context.SaveChanges();
-            return RedirectToAction("Index");
+            if(ModelState.IsValid)
+            {
+                context.Tracks.Add(T);
+                context.SaveChanges();
+                return RedirectToAction("Index");
+            }
             return View();
         }
 
-        public IActionResult Edit()
+        public IActionResult Edit(int id)
         {
-            
-            return View();
+            var data = context.Tracks.Find(id);
+            return View(data);
         }
+        [HttpPost]
+        public IActionResult Edit(Track Tk)
+        {
+            if(ModelState.IsValid)
+            {
+                Track track = context.Tracks.Find(Tk.TrId);
+                track.TrName = Tk.TrName;
+                track.Capcity = Tk.Capcity;
+                context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(data);
+        }
+
+        public IActionResult Delete(int id)
+        {
+            var data = context.Tracks.Find(id);
+            return View(data);
+        }
+        [HttpPost]
+        public IActionResult Delete(int id)
+        {
+            var data = context.Tracks.Find(id);
+            
+            return View(data);
+        }
+
     }
 }
