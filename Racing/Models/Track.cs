@@ -8,6 +8,9 @@ namespace Racing.Models
     public class Track
     {
         public int TrId{get;set;}
-        public int 
+        public string? TrName{get;set;}
+        public int Capcity{get;set;}
+
+        public ICollection<Bike> Bike{get;set;}
     }
 }
